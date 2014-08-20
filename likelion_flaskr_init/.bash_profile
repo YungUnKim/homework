@@ -1,0 +1,1 @@
+export PYTHONPATH=/usr/local/google_appengine:$PYTHONPATH

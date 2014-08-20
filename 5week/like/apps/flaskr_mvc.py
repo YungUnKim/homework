@@ -71,13 +71,13 @@ def verse_entry():
 	dataStorage.database = sorted(dataStorage.database, key = lambda list: list['count'])
 	return redirect(url_for('show_entries'))
 
+@app.route('/comment/like/<int:id>', methods=['GET', 'POST'])
+def comment_count(id):
+	comment = Comment.query.get(id)
+	comment.count += 1
 
-@app.route('/modify/<idx>', methods=['GET'])
-def modify_entry():
-	for data in dataStorage.database:
-		if int(idx) == data['num']:
-			data['title'] = request.args['title']
-			data['contents'] = request.args['contents']
-			break
+	db.session.commit()
 
-	return redirect(url_for('show_entries'))
+	id = comment.article_id
+
+	return redirect(url_for('article_detail', id=id))

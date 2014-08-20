@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>		
+		function initialize() {
+		    var mapOptions = {
+          		center: new google.maps.LatLng(37.537355,127.009591), //좌표
+          		zoom: 15, //확대정도
+          		mapTypeId: google.maps.MapTypeId.ROADMAP //기본지도사용(위성지도및 기타지도도있음~)
+        	};
+        	var map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions);
+      		}
+		
+	</script>
+</head>
+<body onload="initialize()">
+<div id="map_canvas" style="width:640px;height:640px;">
+					
+</div>
+</body>
+</html>
